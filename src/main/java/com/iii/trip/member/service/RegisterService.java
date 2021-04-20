@@ -1,0 +1,13 @@
+package com.iii.trip.member.service;
+
+import com.iii.trip.member.model.MemberBean;
+
+public interface RegisterService {
+	public boolean checkMemId(String userid);
+
+	public void save(MemberBean memberBean);
+
+	public void updateStatus(String userid);
+
+	public boolean checkFirst();
+}

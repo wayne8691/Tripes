@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+
+/* 物件長寬 */
+.activeCouHorCon {
+	width: 100%;
+	height: 100px;
+	counter-reset:num; /* 數字歸零 */
+}
+/* 清單內外距 */
+.activeCouHorCon ul {
+	margin: 0;
+	padding: 0 3%;
+}
+/* 列表項目處理 */
+.activeCouHorPro li {
+	position: relative;
+	list-style-type: none; /* 移除清單預設樣式 */
+	float: left; /* 靠左浮動 */
+	width: 33.33%; /* 項目間距 */
+	color:#4db994;
+}
+/* 圓點處理 */
+.activeCouHorPro li::before {
+	display: block; /* 建立區塊 */
+	width: 1.5em; /* 區塊大小 */
+	height: 1.5em; /* 區塊大小 */
+	background-color: #1f7356; /* 區塊顏色 */
+	border-radius:50%; /* 區塊圓角 */
+	content:"●";
+	color:white;
+	font-size: 1em;
+	line-height:1.5em; /* 上下置中 */
+	text-align:center; /* 水平置中 */
+	margin:0 0 10px 0;
+	counter-increment:num; 
+	content:counter(num);
+}
+/* 線條處理 */
+.activeCouHorPro li::after {
+
+	position: absolute;
+	content: "";
+	top: 15px;
+	left: -50%;
+	z-index: 0; /* 讓線條置於圓圈後 */
+	width: 100%;
+	height: 1px;
+		background-color: #4db994;
+}
+/* 第一列不要有線條 */
+.activeCouHorPro li:first-child::after {
+	content:none;
+}
+.activeCouHorPro li.active {
+	color: #26f52d;
+}
+.activeCouHorPro li.active:before {
+	color: #ffffff;
+	border-color: #009805;
+	background: #009805;
+}
+.activeCouHorPro li.active + li:after {
+	background-color: #009805;
+}
